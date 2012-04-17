@@ -1,4 +1,4 @@
-Here is m .vim setup.
+Here is my .vim setup.
 
 Install
 =======
