@@ -5,24 +5,32 @@ Install
 
 ### Automatic Install ###
 
-Run this from your terminal:
+Run the following your terminal
 
-    curl https://raw.github.com/amal-khailtash/dotvim/master/install.py | python
+(using curl)
+
+    curl https://raw.github.com/amal-khailtash/dotvim/master/install.sh | sh
+
+(using wget)
+
+    wget https://raw.github.com/amal-khailtash/dotvim/master/autoinstall.sh -O - | sh
 
 ### Manual Install ###
 
 Get it from git:
 
-    % cd $HOME
-    % mv .vim .vim.backup
-    % mv .vimrc .vimrc.backup
-    % mv .gvimrc .gvimrc.backup
+    % cd ~
+    % mv -i .vim .vim.backup
+    % mv -i .vimrc .vimrc.backup
+    % mv -i .gvimrc .gvimrc.backup
+    
     % git clone git://github.com/amal-khailtash/dotvim.git .vim
-
-    % ln -s $HOME/.vim/vimrc $HOME/.vimrc
-    % ln -s $HOME/.vim/gvimrc $HOME/.gvimrc
-
-    % cd $HOME/.vim
+    
+    % ln -s ~/.vim/vimrc ~/.vimrc
+    % ln -s ~/.vim/gvimrc ~/.gvimrc
+    
+    % cd ~/.vim
+    
     % git submodule init
     % git submodule update
 
