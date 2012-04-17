@@ -13,7 +13,7 @@ Run the following your terminal
 
 (using wget)
 
-    wget https://raw.github.com/amal-khailtash/dotvim/master/autoinstall.sh -O - | sh
+    wget https://raw.github.com/amal-khailtash/dotvim/master/install.sh -O - | sh
 
 ### Manual Install ###
 
