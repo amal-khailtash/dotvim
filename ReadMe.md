@@ -13,16 +13,16 @@ Run this from your terminal:
 
 Get it from git:
 
-  % cd $HOME
-  % mv .vim .vim.backup
-  % mv .vimrc .vimrc.backup
-  % mv .gvimrc .gvimrc.backup
-  % git clone git://github.com/amal-khailtash/dotvim.git .vim
+    % cd $HOME
+    % mv .vim .vim.backup
+    % mv .vimrc .vimrc.backup
+    % mv .gvimrc .gvimrc.backup
+    % git clone git://github.com/amal-khailtash/dotvim.git .vim
 
-  % ln -s $HOME/.vim/vimrc $HOME/.vimrc
-  % ln -s $HOME/.vim/gvimrc $HOME/.gvimrc
+    % ln -s $HOME/.vim/vimrc $HOME/.vimrc
+    % ln -s $HOME/.vim/gvimrc $HOME/.gvimrc
 
-  % cd $HOME/.vim
-  % git submodule init
-  % git submodule update
+    % cd $HOME/.vim
+    % git submodule init
+    % git submodule update
 
