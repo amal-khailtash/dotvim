@@ -1,0 +1,196 @@
+" vim: fileformat=unix
+"
+let s:MSWIN = has("win16") || has("win32")   || has("win64")    || has("win95")
+let s:UNIX  = has("unix")  || has("macunix") || has("win32unix")
+
+" Set the color scheme
+"colorscheme darkblue
+colorscheme wombat
+
+" Set the font
+if s:MSWIN
+  " ==========  MS Windows  ======================================================
+" set guifont=Consolas:h12:b:cANSI
+  set guifont=Consolas\ for\ Powerline\ FixedD:h12
+" set guifont=Consolas:h14:b:cANSI
+" set guifont=Lucida\ Console:h12:cANSI
+else
+  " ==========  Linux/Unix  ======================================================
+" set guifont=Luxi\ Mono\ Bold\ 11
+" set guifont=Liberation\ Mono\ Bold\ 12
+  set guifont=Liberation\ Mono\ for\ Powerline\ Bold\ 12
+" set guifont=Liberation\ Mono\ Bold \12:h14:b:cANSI
+endif
+
+"set showtabline=2         " Always show tabline
+"set hidden
+"set switchbuf=usetab
+"set switchbuf=usetab,newtab
+
+"nmap <C-F6>   :sbnext<CR>
+"nmap <C-S-F6> :sbprevious<CR>
+"map  <C-F6>   :sbnext<CR>
+"map  <C-S-F6> :sbprevious<CR>
+"imap <C-F6>   <ESC>:sbnext<CR>
+"imap <C-S-F6> <ESC>:sbprevious<CR>
+" Move tabs
+nnoremap <silent> <A-Left>  :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+" To open each buffer in its own tabpage
+""autocmd BufAdd,BufNewFile * nested tab sball
+""autocmd BufAdd,BufNewFile,BufRead * nested tab sball
+"au BufNewFile,BufRead * nested
+"  \ if &buftype != "help" |
+"  \   tab sball |
+"  \ endif
+""autocmd VimEnter * tab all
+"""autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+
+" map commands that normally manipulate buffers to manipulate tabs
+"map gf :tabe <cfile><CR>
+
+
+"function MyTabLabel(n)
+"  let buflist = tabpagebuflist(a:n)
+"  let winnr = tabpagewinnr(a:n)
+"  return bufname(buflist[winnr - 1])
+"endfunction
+"
+"function MyTabLine()
+"  let s = ''
+"  for i in range(tabpagenr('$'))
+"    " select the highlighting
+"    if i + 1 == tabpagenr()
+"      let s .= '%#TabLineSel#'
+"    else
+"      let s .= '%#TabLine#'
+"    endif
+"
+"    " set the tab page number (for mouse clicks)
+"    let s .= '%' . (i + 1) . 'T'
+"
+"    " the label is made by MyTabLabel()
+"    let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+"  endfor
+"
+"  " after the last tab fill with TabLineFill and reset tab page nr
+"  let s .= '%#TabLineFill#%T'
+"
+"  " right-align the label to close the current tab page
+"  if tabpagenr('$') > 1
+"    let s .= '%=%#TabLine#%999Xclose'
+"  endif
+"
+"  return s
+"endfunction
+
+"" set up tab labels with tab number, buffer name, number of windows
+"function! GuiTabLabel()
+"  let label = ''
+"  let bufnrlist = tabpagebuflist(v:lnum)
+"  " Add '+' if one of the buffers in the tab page is modified
+"  for bufnr in bufnrlist
+"    if getbufvar(bufnr, "&modified")
+"      let label = '+'
+"      break
+"    endif
+"  endfor
+"  " Append the tab number
+"  let label .= v:lnum.': '
+"  " Append the buffer name
+"  let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
+"  if name == ''
+"    " give a name to no-name documents
+"    if &buftype=='quickfix'
+"      let name = '[Quickfix List]'
+"    else
+"      let name = '[No Name]'
+"    endif
+"  else
+"    " get only the file name
+"    let name = fnamemodify(name,":t")
+"  endif
+"  let label .= name
+"  " Append the number of windows in the tab page
+"  let wincount = tabpagewinnr(v:lnum, '$')
+"  return label . '  [' . wincount . ']'
+"endfunction
+"set guitablabel=%{GuiTabLabel()}
+
+"" set up tab tooltips with every buffer name
+"function! GuiTabToolTip()
+"  let tip = ''
+"  let bufnrlist = tabpagebuflist(v:lnum)
+"  for bufnr in bufnrlist
+"    " separate buffer entries
+"    if tip!=''
+"      let tip .= " \n "
+"    endif
+"    " Add name of buffer
+"    let name=bufname(bufnr)
+"    if name == ''
+"      " give a name to no name documents
+"      if getbufvar(bufnr,'&buftype')=='quickfix'
+"        let name = '[Quickfix List]'
+"      else
+"        let name = '[No Name]'
+"      endif
+"    endif
+"    let tip.=name
+"    " add modified/modifiable flags
+"    if getbufvar(bufnr, "&modified")
+"      let tip .= ' [+]'
+"    endif
+"    if getbufvar(bufnr, "&modifiable")==0
+"      let tip .= ' [-]'
+"    endif
+"  endfor
+"  return tip
+"endfunction
+"set guitabtooltip=%{GuiTabToolTip()}
+
+" Add a tabs menu
+"amenu Tabs.-SEP- :
+"amenu Tabs.&New :tabnew<cr>
+"amenu Tabs.&Delete :confirm tabclose<cr>
+"amenu Tabs.&Alternate :confirm tabn #<cr>
+"amenu <silent>Tabs.&Next :tabnext<cr>
+"amenu <silent>Tabs.&Previous :tabprevious<cr>
+
+" tab navigation like firefox
+"nmap <C-T>      :tabnew<CR>
+"nmap <C-F4>     :tabclose<CR>
+"nmap <C-Insert> :tabnew<CR>
+"nmap <C-Delete> :tabclose<CR>
+"nmap <C-Tab>    :tabnext<CR>
+"nmap <C-S-Tab>  :tabprevious<CR>
+
+"map  <C-T>      :tabnew<CR>
+"map  <C-F4>     :tabclose<CR>
+"map  <C-Insert> :tabnew<CR>
+"map  <C-Delete> :tabclose<CR>
+"map  <C-Tab>    :tabnext<CR>
+"map  <C-S-Tab>  :tabprevious<CR>
+
+"imap <C-T>      <ESC>:tabnew<CR>
+"imap <C-F4>     <ESC>:tabclose<CR>
+"imap <C-Insert> <ESC>:tabnew<CR>
+"imap <C-Delete> <ESC>:tabclose<CR>
+"imap <C-Tab>    <ESC>:tabnext<CR>i
+"imap <C-S-Tab>  <ESC>:tabprevious<CR>i
+
+" let MRU_Include_Files = $VIM . "/_vim_mru_files"
+
+" miniBuffer
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+
+" buftabs
+"g:buftabs_only_basename
+"g:buftabs_in_statusline
+"set laststatus=2
+"let g:buftabs_in_statusline=1
+
