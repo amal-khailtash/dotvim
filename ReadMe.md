@@ -1,9 +1,6 @@
-Here is my .vim setup.
+# My ~/.vim settings
 
-Install
-=======
-
-### Automatic Install ###
+## Automatic Install
 
 Run the following your terminal
 
@@ -15,7 +12,7 @@ Run the following your terminal
 
     wget https://raw.github.com/amal-khailtash/dotvim/master/install.sh -O - | sh
 
-### Manual Install ###
+## Manual Install
 
 Get it from git:
 
@@ -26,8 +23,8 @@ Get it from git:
     
     % git clone git://github.com/amal-khailtash/dotvim.git .vim
     
-    % ln -s ~/.vim/vimrc ~/.vimrc
-    % ln -s ~/.vim/gvimrc ~/.gvimrc
+    % ln -s ~/.vim/_vimrc ~/.vimrc
+    % ln -s ~/.vim/_gvimrc ~/.gvimrc
     
     % cd ~/.vim
     
