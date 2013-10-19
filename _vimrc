@@ -180,6 +180,16 @@ set matchtime=2    " How many tenths of a second to blink
 
 set laststatus=2   " Always show the statusline
 
+set title          " Show filename terminal title-bar
+
+set ttyfast        " let vim do more at once, with a modern terminal
+
+set wildmode=list:full  " tab completion done better
+
+set eol            " force blank lines at end of file
+
+set autochdir      " opening a file any buffer uses the pwd for that file
+
 "set backspace=indent,eol,start " make the backspace key work for indents, work past
 "                               " the end of a line, and paste the start of an
 "                               " insertion
@@ -212,7 +222,7 @@ set list listchars=tab:».,trail:·,extends:>,precedes:<,nbsp:_
 set columns=140    " Set terminal to 140 columns
 set nowrap         " Turn off line-wrapping
 
-autocmd BufEnter * silent! lcd %:p:h   " Change to the directory of the currently open file
+"autocmd BufEnter * silent! lcd %:p:h   " Change to the directory of the currently open file
 
 "autocmd BufNewFile,BufRead *.xtcl                   setfiletype xtcl
 
@@ -320,6 +330,13 @@ inoremap <A-Down> <Esc>:m+<CR>==gi
 inoremap <A-Up>   <Esc>:m-2<CR>==gi
 vnoremap <A-Down> :m'>+<CR>gv=gv
 vnoremap <A-Up>   :m-2<CR>gv=gv
+
+" Enter turns off any highlighted matches, then acts as normal
+nnoremap <CR> :noh<CR><CR>
+
+" make vim's regex interpretation friendlier (see :h pattern)
+nnoremap / /\v
+vnoremap / /\v
 
 "---------------------------------------------------------------------------------------------------
 " Quote a word, using single quotes
@@ -433,9 +450,9 @@ imap  <C-F4>   <ESC>:bd<CR>
 imap  <C-w>    :bd<CR>
 "imap <C-F4>   :Bclose<CR>
 
-nmap  <C-S-q>    :qa<CR>
-map   <C-S-q>    :qa<CR>
-imap  <C-S-q>    :qa<CR>
+"nmap  <C-S-q>    :qa<CR>
+"map   <C-S-q>    :qa<CR>
+"imap  <C-S-q>    :qa<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Parenthesis/bracket expanding
@@ -931,8 +948,8 @@ nnoremap <F12> :exec "normal @q"<CR>
 "-------------------------------------------------------------------------------
 " vim-machit
 "-------------------------------------------------------------------------------
-"Bundle "tsaleh/vim-matchit"
-Bundle "vim-matchit"
+Bundle "tsaleh/vim-matchit"
+"Bundle "vim-matchit"
 
 set matchpairs+=<:>
 
