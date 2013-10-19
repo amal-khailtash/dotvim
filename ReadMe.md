@@ -1,4 +1,4 @@
-# My ~/.vim settings
+# My ~/.vim directory, settings and plugins
 
 ## Automatic Install
 
