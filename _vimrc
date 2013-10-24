@@ -441,18 +441,18 @@ map! <C-S-space> <C-p>
   imap  <C-S-F6> <ESC>:bprevious<CR>
 "endif
 nmap  <C-F4>   :bd<CR>
-nmap  <C-w>    :bd<CR>
+nmap  <C-W>    :bd<CR>
 "nmap <C-F4>  :Bclose<CR>
 map   <C-F4>   :bd<CR>
-map   <C-w>    :bd<CR>
+map   <C-W>    :bd<CR>
 "map  <C-F4>   :Bclose<CR>
 imap  <C-F4>   <ESC>:bd<CR>
-imap  <C-w>    :bd<CR>
+imap  <C-W>    :bd<CR>
 "imap <C-F4>   :Bclose<CR>
 
-"nmap  <C-S-q>    :qa<CR>
-"map   <C-S-q>    :qa<CR>
-"imap  <C-S-q>    :qa<CR>
+nmap  <M-F12>    :qa<CR>
+map   <M-F12>    :qa<CR>
+imap  <M-F12>    :qa<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Parenthesis/bracket expanding
@@ -817,10 +817,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "Bundle 'The-NERD-Commenter'
 
 "-------------------------------------------------------------------------------
-"Bundle 'amal_khailtash/vim-xdc-syntax'
-"Bundle 'amal_khailtash/vim-xtcl-syntax'
-Bundle 'vim-xdc-syntax'
-Bundle 'vim-xtcl-syntax'
+Bundle 'amal-khailtash/vim-xdc-syntax'
+Bundle 'amal-khailtash/vim-xtcl-syntax'
 
 "-------------------------------------------------------------------------------
 Bundle 'vlog_inst_gen'
@@ -834,6 +832,11 @@ Bundle 'vlog_inst_gen'
 "Bundle 'VhdlNav'
 Bundle 'Wombat'
 Bundle 'visual-increment'
+
+vmap <Leader>i <Plug>VisualIncrement
+vmap <Leader>d <Plug>VisualDecrement
+vmap <C-F11>   <Plug>VisualIncrement
+vmap <C-F12>   <Plug>VisualDecrement
 
 "-------------------------------------------------------------------------------
 Bundle "tComment"
@@ -943,13 +946,12 @@ let  marvim_find_key  = '<S-F12>'   " change find key from <F2> to 'space'
 let  marvim_store_key = '<S-F11>'   " change store key from <F3> to 'ms'
 "let marvim_register  = 'c'         " change used register from 'q' to 'c'
 let  marvim_prefix    = 0           " disable default syntax based prefix
-nnoremap <F12> :exec "normal @q"<CR>
+"nnoremap <F12> :exec "normal @q"<CR>
 
 "-------------------------------------------------------------------------------
 " vim-machit
 "-------------------------------------------------------------------------------
 Bundle "tsaleh/vim-matchit"
-"Bundle "vim-matchit"
 
 set matchpairs+=<:>
 
